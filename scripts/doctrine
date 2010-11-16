@@ -1,0 +1,14 @@
+#!/usr/bin/php
+<?php
+
+include("../public/base.php");
+
+$bootstrap = $application->getBootstrap();
+$bootstrap->bootstrap();
+$options = $application->getOption('doctrine');
+
+//echo print_r($options, true); 
+//die;
+
+$cli = new Doctrine_Cli($options);
+$cli->run($_SERVER['argv']);

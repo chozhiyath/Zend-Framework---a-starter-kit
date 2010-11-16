@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" id="homepage">
+	<head>
+		<meta charset="UTF-8">
+		<title>SimpleApp: Prototype</title>
+
+<?php if(APPLICATION_ENV == 'production'){ ?>
+		<link rel="stylesheet" href="/min/b=css&amp;f=app.css,screen.css"/>
+		<script src="/min/b=js&amp;f=jquery-1.4.3.min.js,script.js"></script>
+<?php }else{ ?>
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/app.css"/>
+		<link rel="stylesheet" href="css/screen.css"/>
+
+		<!-- Custom JS -->
+		<script src="js/script.js"></script>
+<?php } ?>
+	</head>
+	<body>
+		<?php echo $this->layout()->content; ?>
+	</body>
+</html>

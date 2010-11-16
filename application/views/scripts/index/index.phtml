@@ -1,0 +1,16 @@
+<h1><?php if(!empty($this->userName)){ ?> <?= $this->firstName ?> <?= $this->lastName . ", " ?> <?php } ?> Welcome to <span>MyApp</span>!</h1>
+<?php if(!empty($this->userName)){ ?> <a href="/logout">logout</a> <?php } ?>
+<?php
+if(empty($this->userName)){
+?>
+<h2>Please login:</h2>
+<form method="POST" action="/login">
+  Username: <input type="text" name="username" size="15" /><br />
+  Password: <input type="password" name="password" size="15" /><br />
+  <div align="center">
+    <p><input type="submit" value="Login" /></p>
+  </div>
+</form>
+<?php 
+} 
+?>

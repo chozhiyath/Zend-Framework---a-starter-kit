@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<configdata xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
+	<production>
+		<phpSettings>
+			<display_startup_errors>0</display_startup_errors>
+			<display_errors>0</display_errors>
+			<date.timezone>Asia/Calcutta</date.timezone>
+		</phpSettings>
+		<!--includePaths>
+			<library>
+				<zf:const zf:name="APPLICATION_PATH"/>/../library
+				<zf:const zf:name="APPLICATION_PATH"/>/../library/Doctrine
+			</library>
+		</includePaths-->
+		<bootstrap>
+    		<path><zf:const zf:name="APPLICATION_PATH"/>/Bootstrap.php</path>
+    		<class>Bootstrap</class>
+		</bootstrap>
+		<appnamespace></appnamespace>
+		<resources>
+			<frontController>
+				<controllerDirectory><zf:const zf:name="APPLICATION_PATH"/>/controllers</controllerDirectory>
+				<params>
+					<displayExceptions>0</displayExceptions>
+				</params>
+			</frontController>
+			<layout>
+				<layoutPath><zf:const zf:name="APPLICATION_PATH"/>/layouts/scripts/</layoutPath>
+			</layout>
+			<log>
+				<stream>
+					<writerName>Stream</writerName>
+					<writerParams>
+						<stream><zf:const zf:name="APPLICATION_PATH"/>/logs/application.log</stream>
+						<mode>a</mode>
+					</writerParams>
+				</stream>
+			</log>
+		</resources>
+		<autoloaderNamespaces><value>Doctrine</value></autoloaderNamespaces>
+		<doctrine>
+			<dsn>mysql://root:@127.0.0.1/myapp_dev</dsn>
+			<data_fixtures_path><zf:const zf:name="APPLICATION_PATH"/>/doctrine/data/fixtures</data_fixtures_path>
+			<sql_path><zf:const zf:name="APPLICATION_PATH"/>/doctrine/data/sql</sql_path>
+			<migrations_path><zf:const zf:name="APPLICATION_PATH"/>/doctrine/data/fixtures</migrations_path>
+			<yaml_schema_path><zf:const zf:name="APPLICATION_PATH"/>/doctrine/schema/schema.yml</yaml_schema_path>
+			<models_path><zf:const zf:name="APPLICATION_PATH"/>/models</models_path>
+			<generate_models_options>
+				<pearStyle>true</pearStyle>
+				<generateTableClasses>true</generateTableClasses>
+				<generateBaseClasses>true</generateBaseClasses>
+				<generateClassPrefix>false</generateClassPrefix>
+				<baseClassPrefix>Base_</baseClassPrefix>
+				<baseClassesDirectory></baseClassesDirectory>
+				<classPrefixFiles>false</classPrefixFiles>
+				<generateAccessors>false</generateAccessors>
+			</generate_models_options>
+		</doctrine>
+	</production>
+	
+	<staging extends="production">
+	</staging>
+	
+	<development extends="production">
+		<phpSettings>
+			<display_startup_errors>1</display_startup_errors>
+			<display_errors>1</display_errors>
+		</phpSettings>
+		<resources>
+			<!--db>
+				<adapter>PDO_MYSQL</adapter>
+				<params>
+					<host>127.0.0.1</host>
+					<username>root</username>
+					<password></password>
+					<dbname>waysact_dev</dbname>
+				</params>
+			</db-->
+			<frontController>
+				<params>
+					<displayExceptions>1</displayExceptions>
+				</params>
+			</frontController>
+		</resources>
+		<doctrine>
+			<dsn>mysql://root:@127.0.0.1/myapp_dev</dsn>
+		</doctrine>
+	</development>
+	
+	<testing extends="production">
+	</testing>
+</configdata>

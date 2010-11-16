@@ -1,0 +1,37 @@
+---
+options:
+  type: INNODB
+detect_relations: true
+           
+User:
+    actAs: [Timestampable]
+    columns:
+        id:
+           primary: true
+           autoincrement: true
+           type: integer(10)
+        username:
+           type: string(100)
+           notnull: true
+        password:
+           type: string(100)
+           notnull: true
+        email:
+           email: true
+           type: string(100)
+           notblank: true
+           notnull: true
+        firstname:
+           type: string(100)
+           notnull: true
+        lastname:
+           type: string(100)
+        user_role:
+           type: enum
+           values: [ADMIN, USER]
+        status:
+           type: enum
+           values: [ACTIVE, INACTIVE, SUSPENDED]
+        last_logged_in: 
+           type: timestamp
+           notnull: true

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
+	<routes>
+		<login>
+			<route>/login</route>
+			<defaults>
+				<controller>auth</controller>
+				<action>login</action>
+			</defaults>
+		</login>
+		
+		<logout>
+			<route>/logout</route>
+			<defaults>
+				<controller>auth</controller>
+				<action>logout</action>
+			</defaults>
+		</logout>
+		
+		<registration>
+			<route>/registration</route>
+			<defaults>
+				<controller>registration</controller>
+				<action>index</action>
+			</defaults>
+		</registration>
+
+		<process>
+			<route>/process</route>
+			<defaults>
+				<controller>registration</controller>
+				<action>process</action>
+			</defaults>
+		</process>
+	</routes>
+</configdata>
